@@ -1,5 +1,5 @@
 /*
- * sidebar v.1.0
+ * sidebar v.1.1
  */
 
 .c-sidebar {
@@ -44,8 +44,8 @@
 
   .c-sidebar-nav-item .c-sidebar-nav-dropdown-items .c-sidebar-nav-link:hover,
   .c-sidebar-nav-dropdown .c-sidebar-nav-dropdown-items .c-sidebar-nav-link:hover {
-    background: $custom-sidebar-nav-link-hover-bg;
-    color: $custom-sidebar-nav-link-hover-color;
+    background: $custom-sidebar-nav-dropdown-link-hover-bg;
+    color: $custom-sidebar-nav-dropdown-link-hover-color;
   }
 
 
@@ -65,7 +65,8 @@
 
   .c-sidebar-nav-item.c-show     .c-sidebar-nav-dropdown-items .c-sidebar-nav-link.c-active,
   .c-sidebar-nav-dropdown.c-show .c-sidebar-nav-dropdown-items .c-sidebar-nav-link.c-active {
-    color: $custom-sidebar-nav-link-active-color;
+    background: $custom-sidebar-nav-dropdown-link-active-bg;
+    color: $custom-sidebar-nav-dropdown-link-active-color;
   }
 
   // icon
