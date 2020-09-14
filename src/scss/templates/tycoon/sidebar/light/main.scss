@@ -1,0 +1,12 @@
+@import 'variables';
+@import 'custom';
+
+.c-sidebar {
+  box-shadow: 20px 0 20px -20px #d3d7e9;
+
+  .c-show .c-sidebar-nav-dropdown-toggle::after,
+  .c-show .c-sidebar-nav-dropdown-toggle:hover::after {
+    background-image: $custom-sidebar-chevron-light;
+  }
+}
+
