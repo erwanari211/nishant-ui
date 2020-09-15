@@ -1,0 +1,90 @@
+/**
+ * navbar v.1.0
+ */
+
+.c-header {
+  background: $custom-navbar-bg;
+  border-bottom: 0;
+
+  // toggler
+  .c-header-toggler .c-icon {
+    color: $custom-navbar-toggler-btn-color;
+  }
+
+  // subheader
+  .c-subheader {
+    background: $custom-subheader-bg;
+    border-top: 1px solid $custom-navbar-bg;
+    border-bottom: $custom-subheader-border-bottom;
+  }
+
+  // link
+  .c-header-nav-item {
+    height: 56px;
+
+    .c-header-nav-link,
+    .c-header-nav-btn {
+      height: 40px;
+      margin: 8px 0;
+    }
+  }
+
+  .c-header-nav .c-header-nav-link,
+  .c-header-nav .c-header-nav-btn {
+    color: $custom-navbar-color;
+  }
+
+  // hover
+  .c-header-nav .c-header-nav-link:hover,
+  .c-header-nav .c-header-nav-link:focus,
+  .c-header-nav .c-header-nav-btn:hover,
+  .c-header-nav .c-header-nav-btn:focus {
+    background: $custom-navbar-hover-link-bg;
+    color: $custom-navbar-hover-color;
+  }
+
+  .c-header-nav .c-header-nav-item:hover {
+    background: $custom-navbar-hover-item-bg;
+  }
+
+  // active
+  .c-header-nav .c-header-nav-item.c-active {
+    background: $custom-navbar-active-item-bg;
+  }
+
+  .c-header-nav .c-header-nav-item.c-active .c-header-nav-link,
+  .c-header-nav .c-header-nav-item.c-active .c-header-nav-btn {
+    background: $custom-navbar-active-link-bg;
+    color: $custom-navbar-active-color;
+  }
+
+  // disabled
+  .c-header-nav .c-header-nav-item.c-disabled {
+    background: $custom-navbar-disabled-item-bg;
+  }
+
+  .c-header-nav .c-header-nav-item.c-disabled .c-header-nav-link,
+  .c-header-nav .c-header-nav-item.c-disabled .c-header-nav-btn {
+    background: $custom-navbar-disabled-link-bg;
+    color: $custom-navbar-disabled-color;
+  }
+
+  // dropdown
+  .dropdown-menu {
+    .dropdown-header {
+      background: $custom-dropdown-header-bg;
+      color: $custom-dropdown-header-color;
+    }
+
+    .dropdown-item {
+      background: $custom-dropdown-item-bg;
+      color: $custom-dropdown-item-color;
+    }
+
+    .dropdown-item:hover,
+    .dropdown-item:focus {
+      background: $custom-dropdown-item-hover-bg;
+      color: $custom-dropdown-item-hover-color;
+    }
+  }
+}
