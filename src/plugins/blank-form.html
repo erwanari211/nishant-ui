@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--
+* CoreUI - Free Bootstrap Admin Template
+* @version v3.2.0
+* @link https://coreui.io
+* Copyright (c) 2020 creativeLabs Łukasz Holeczek
+* Licensed under MIT (https://coreui.io/license)
+-->
+
+<html lang="en">
+  <head>
+    <base href="./../">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <title>CoreUI Free Bootstrap Admin Template</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+    <!-- styles required by this view-->
+
+
+    <!-- Main styles for this application-->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+      @media (min-width: 576px) {
+          .card-columns {
+              column-count: 2;
+          }
+      }
+
+      @media (min-width: 768px) {
+          .card-columns {
+              column-count: 2;
+          }
+      }
+
+      @media (min-width: 992px) {
+          .card-columns {
+              column-count: 2;
+          }
+      }
+
+      @media (min-width: 1200px) {
+          .card-columns {
+              column-count: 2;
+          }
+      }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics-->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      // Shared ID
+      gtag('config', 'UA-118965717-3');
+      // Bootstrap ID
+      gtag('config', 'UA-118965717-5');
+    </script>
+  </head>
+  <body class="c-app">
+    <include src="plugins/partials/sidebar.html" data-as-fragment></include>
+    <div class="c-wrapper c-fixed-components">
+      <include src="plugins/partials/header.html" data-as-fragment></include>
+      <div class="c-body">
+        <main class="c-main">
+          <div class="container-fluid">
+            <div class="fade-in">
+              <div class="card">
+                <div class="card-header"><strong>Form validation</strong></div>
+                <div class="card-body">
+                  <form id="main-form">
+                    <div class="form-group">
+                      <label>Name</label>
+                      <input type="text"
+                        name="name"
+                        value="John Smith"
+                        required
+                        class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="message">Message</label>
+                      <textarea class="form-control"
+                        name="message"
+                        required
+                        rows="3">This is your message</textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <input type="submit" value="Submit" class="btn btn-primary"/>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+              <!-- /.row-->
+            </div>
+          </div>
+        </main>
+        <include src="plugins/partials/footer.html" data-as-fragment></include>
+      </div>
+    </div>
+    <!-- CoreUI and necessary plugins-->
+    <script src="node_modules/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
+    <!--[if IE]><!-->
+    <script src="node_modules/@coreui/icons/js/svgxuse.min.js"></script>
+    <!--<![endif]-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://combinatronics.com/Sha256/Pristine/master/dist/pristine.js"></script>
+    <script src="js/pristine-custom-validation.js"></script>
+
+    <!-- Plugins and scripts required by this view-->
+    <script>
+      $(document).ready(function () {
+        var form = document.getElementById("main-form");
+
+        var pristine = new Pristine(form);
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var valid = pristine.validate();
+          // alert('Form is valid: ' + valid);
+          if(valid){
+            var inputs = $(this).serializeArray()
+            console.log(inputs)
+            console.log('Form submitted');
+          } else {
+            console.log('There are errors on the form');
+            var errors = pristine.getErrors()
+            console.log(errors)
+
+            var errorElms = []
+            for (let i = 0; i < errors.length; i++) {
+              var error = errors[i];
+              errorElms.push(error.input.attributes.name.value)
+            }
+            console.log(errorElms);
+          }
+        });
+      });
+    </script>
+
+    <!-- include html -->
+    <script>
+      function insertAfter(referenceNode, newNode) {
+        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+      }
+
+      function createElementFromHTML(htmlString) {
+        var div = document.createElement('div');
+        div.innerHTML = htmlString.trim();
+        return div.firstChild;
+      }
+
+      let includeTags = document.getElementsByTagName("include");
+
+      for (let i = 0; i < includeTags.length; i++) {
+        let tag = includeTags[i];
+        let url = tag.attributes["src"].value;
+
+        fetch(url)
+          .then((response) => response.text())
+          .then((html) => {
+            let asFragment = tag.hasAttribute('data-as-fragment');
+
+            if (asFragment) {
+              var elm = createElementFromHTML(html);
+              insertAfter(tag, elm);
+            } else {
+              tag.innerHTML = html;
+            }
+          })
+          .catch((error) => {
+            console.warn(error);
+          });
+      }
+    </script>
+  </body>
+</html>
