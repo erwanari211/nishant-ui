@@ -1,0 +1,80 @@
+/*
+ * sidebar v.2.0
+ */
+
+// color variables
+$_sidebar_main_bg : #222D32;
+$_sidebar_main_color : #B8C7CE;
+
+$_sidebar_active_bg : #1E282C;
+$_sidebar_active_color : #FFFFFF;
+
+$_sidebar_dropdown_bg : #2C3B41;
+$_sidebar_brand_bg : #3c8dbc;
+
+// main
+$custom-sidebar-bg: $_sidebar_main_bg;
+$custom-sidebar-color: $_sidebar_main_color;
+$custom-sidebar-icon-color: $_sidebar_main_color;
+
+$custom-sidebar-brand-bg: $_sidebar_brand_bg;
+$custom-sidebar-nav-title-color: $_sidebar_main_color;
+
+$custom-sidebar-nav-link-hover-bg: $_sidebar_active_bg;
+$custom-sidebar-nav-link-hover-color: $_sidebar_active_color;
+$custom-sidebar-nav-link-hover-icon-color: $_sidebar_active_color;
+
+$custom-sidebar-nav-link-active-bg: $_sidebar_active_bg;
+$custom-sidebar-nav-link-active-color: $_sidebar_active_color;
+$custom-sidebar-nav-link-active-icon-color: $_sidebar_active_color;
+
+// dropdown
+$custom-sidebar-nav-dropdown-bg: $_sidebar_dropdown_bg;
+$custom-sidebar-nav-dropdown-color: $_sidebar_main_color;
+$custom-sidebar-nav-dropdown-icon-color: $_sidebar_main_color;
+
+$custom-sidebar-nav-dropdown-link-hover-bg: transparent;
+$custom-sidebar-nav-dropdown-link-hover-color: $_sidebar_active_color;
+$custom-sidebar-nav-dropdown-link-hover-icon-color: $_sidebar_active_color;
+
+$custom-sidebar-nav-dropdown-link-active-bg: transparent;
+$custom-sidebar-nav-dropdown-link-active-color: $_sidebar_active_color;
+$custom-sidebar-nav-dropdown-link-active-icon-color: $_sidebar_active_color;
+
+// selected
+$custom-sidebar-nav-link-selected-bg: $_sidebar_active_bg;
+$custom-sidebar-nav-link-selected-color: $_sidebar_active_color;
+$custom-sidebar-nav-link-selected-icon-color: $_sidebar_active_color;
+
+// minimized main
+$custom-sidebar-minimized-bg: $_sidebar_main_bg;
+$custom-sidebar-minimized-color: $_sidebar_main_color;
+$custom-sidebar-minimized-icon-color: $_sidebar_main_color;
+
+$custom-sidebar-minimized-brand-bg: $_sidebar_brand_bg;
+$custom-sidebar-minimized-nav-title-color: $_sidebar_main_color;
+
+$custom-sidebar-minimized-nav-link-hover-bg: transparent;
+$custom-sidebar-minimized-nav-link-hover-color: $_sidebar_active_color;
+$custom-sidebar-minimized-nav-link-hover-icon-color: $_sidebar_active_color;
+
+$custom-sidebar-minimized-nav-link-active-bg: transparent;
+$custom-sidebar-minimized-nav-link-active-color: $_sidebar_active_color;
+$custom-sidebar-minimized-nav-link-active-icon-color: $_sidebar_active_color;
+
+// minimized dropdown
+$custom-sidebar-minimized-nav-dropdown-bg: $_sidebar_dropdown_bg;
+$custom-sidebar-minimized-nav-dropdown-color: $_sidebar_main_color;
+$custom-sidebar-minimized-nav-dropdown-icon-color: $_sidebar_main_color;
+
+$custom-sidebar-minimized-nav-dropdown-link-hover-bg: trasparent;
+$custom-sidebar-minimized-nav-dropdown-link-hover-color: $_sidebar_active_color;
+$custom-sidebar-minimized-nav-dropdown-link-hover-icon-color: $_sidebar_active_color;
+
+$custom-sidebar-minimized-nav-dropdown-link-active-bg: $_sidebar_active_bg;
+$custom-sidebar-minimized-nav-dropdown-link-active-color: $_sidebar_active_color;
+$custom-sidebar-minimized-nav-dropdown-link-active-icon-color: $_sidebar_active_color;
+
+// chevron
+$custom-sidebar-chevron-light: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'><path fill='rgba(255, 255, 255, 0.5)' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/></svg>");
+$custom-sidebar-chevron-dark: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'><path fill='rgba(0, 0, 0, 0.5)' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/></svg>");
