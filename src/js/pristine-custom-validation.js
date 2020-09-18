@@ -107,31 +107,65 @@ Pristine.addValidator("file-ext", function(value, extenstions) {
   return `This input must be a file of type: ${extenstions}`
 }, 5, false);
 
+function checkIsField(date, form) {
+  var isField = date.includes('_field');
+  if (isField) {
+    var fieldName = date.replace("_field", "");
+    var otherField = $(form).find('[name="' + fieldName + '"]');
+    if (!otherField) {
+      console.warn('Input not found')
+    }
+    date = $(otherField).val();
+  }
+
+  return date;
+}
+
 Pristine.addValidator("after-date", function(value, date) {
+  var elm = $(this)[0];
+  var form = $(elm).parents('form');
+  date = checkIsField(date, form);
+
   var date = moment(date);
   var value = moment(value);
   return value.isAfter(date);
 }, "This input must be a date after ${1}", 5, false);
 
 Pristine.addValidator("after-or-equal-date", function(value, date) {
+  var elm = $(this)[0];
+  var form = $(elm).parents('form');
+  date = checkIsField(date, form);
+
   var date = moment(date);
   var value = moment(value);
   return value.isSameOrAfter(date);
 }, "This input must be a date after or equal to ${1}", 5, false);
 
 Pristine.addValidator("before-date", function(value, date) {
+  var elm = $(this)[0];
+  var form = $(elm).parents('form');
+  date = checkIsField(date, form);
+
   var date = moment(date);
   var value = moment(value);
   return value.isBefore(date);
 }, "This input must be a date before ${1}", 5, false);
 
 Pristine.addValidator("before-or-equal-date", function(value, date) {
+  var elm = $(this)[0];
+  var form = $(elm).parents('form');
+  date = checkIsField(date, form);
+
   var date = moment(date);
   var value = moment(value);
   return value.isSameOrBefore(date);
 }, "This input must be a date before or equal to ${1}", 5, false);
 
 Pristine.addValidator("date-equals", function(value, date) {
+  var elm = $(this)[0];
+  var form = $(elm).parents('form');
+  date = checkIsField(date, form);
+
   var date = moment(date);
   var value = moment(value);
   return value.isSame(date);
