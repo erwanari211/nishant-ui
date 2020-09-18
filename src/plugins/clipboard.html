@@ -37,6 +37,7 @@
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/v4-shims.min.css">
 
     <!-- styles required by this view-->
 
@@ -68,70 +69,51 @@
               <div class="card">
                 <div class="card-header"><strong>Plugins</strong></div>
                 <div class="card-body">
-                  <div class="mb-2">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse"
-                      data-target="#form-validation">
-                      Form validation
-                    </button>
-                    <div class="collapse my-2" id="form-validation">
-                      <div class="list-group">
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/form-validation.html">
-                          Form Validation
-                        </a>
+                  <div class="row">
+                    <div class="col-sm-6 col-md-8">
+                      <div class="input-group">
+                        <!-- Target -->
+                        <input type="text" id="foo"
+                        value="https://github.com/zenorocha/clipboard.js"
+                        class="form-control">
+
+                        <!-- Trigger -->
+                        <span class="input-group-btn input-group-append">
+                          <button
+                            type="button"
+                            class="btn btn-secondary clipboard"
+                            data-clipboard-target="#foo">
+                            <i class="fa fa-clipboard"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                      <div class="form-group">
+                        <textarea class="form-control" name="content" rows="3"></textarea>
                       </div>
                     </div>
                   </div>
 
-                  <div class="mb-2">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse"
-                      data-target="#form-widget">
-                      Form Widget
-                    </button>
-                    <div class="collapse my-2" id="form-widget">
-                      <div class="list-group">
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/datetimepicker.html">
-                          Datetimepicker
-                        </a>
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/bootstrap-touchspin.html">
-                          Bootstrap Touchspin
-                        </a>
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/pretty-checkbox.html">
-                          Pretty Checkbox
-                        </a>
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/select2.html">
-                          Select2
-                        </a>
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/autosize.html">
-                          Autosize
-                        </a>
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/clipboard.html">
-                          Clipboard
-                        </a>
+                  <div class="row">
+                    <div class="col-sm-6 col-md-8">
+                      <button
+                        type="button"
+                        class="btn btn-secondary clipboard"
+                        data-clipboard-text="http://www.google.com">
+                        Click here to copy URL <i class="fa fa-clipboard"></i>
+                      </button>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                      <div class="form-group">
+                        <textarea class="form-control" name="content" rows="3"></textarea>
                       </div>
                     </div>
                   </div>
 
-                  <div class="mb-2">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse"
-                      data-target="#new">
-                      New
-                    </button>
-                    <div class="collapse my-2" id="new">
-                      <div class="list-group">
-                        <a class="list-group-item list-group-item-action"
-                          href="#">
-                          New
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+
                 </div>
               </div>
               <!-- /.row-->
@@ -150,9 +132,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Plugins and scripts required by this view-->
+    <script src="js/tooltips.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
     <script>
       $(document).ready(function () {
-        console.log('OK!');
+        var clipboard = new ClipboardJS('.clipboard');
+
+        function setTooltip(elm, message) {
+          elm.attr('data-title', message)
+          elm.attr('data-trigger', 'click')
+          elm.attr('data-container', 'body')
+
+          var tooltip = new coreui.Tooltip(elm[0])
+          tooltip.show()
+          return tooltip;
+        }
+
+        function hideTooltip(tooltip) {
+          setTimeout(function() {
+            tooltip.dispose()
+          }, 1000);
+        }
+
+        clipboard.on('success', function(e) {
+          var elm = $(e.trigger)
+          var tooltip = setTooltip(elm, 'Copied!');
+          hideTooltip(tooltip);
+        });
+
+        clipboard.on('error', function(e) {
+          var elm = $(e.trigger)
+          var tooltip = setTooltip(elm, 'Failed!');
+          hideTooltip(tooltip);
+        });
       });
     </script>
 
