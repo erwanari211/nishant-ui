@@ -171,6 +171,12 @@ Pristine.addValidator("date-equals", function(value, date) {
   return value.isSame(date);
 }, "This input must be a date equal to ${1}", 5, false);
 
+// date_format:format
+Pristine.addValidator("date-format", function(value, format) {
+  var isValid = moment(value, format, true).isValid()
+  return isValid;
+}, "This input does not match the format ${1}", 5, false);
+
 Pristine.addValidator("between", function(value, min, max) {
   return parseInt(min) <= value && value <= parseInt(max)
 }, "This input must be between ${1} and ${2}", 5, false);
