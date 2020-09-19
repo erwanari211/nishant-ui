@@ -74,6 +74,7 @@
     "watch-js": "nodemon -e js -x \"npm run js\"",
     "watch-pug": "node build/watch-pug.js",
     "watch-views": "nodemon -e html -x \"npm-run-all --sequential copy-views build-vendors svg localhost-reload\"",
+    "copy-txt": "copyfiles -a -u 1 \"src/**/*.txt\" dist/",
     "watch-html-only": "nodemon -e html -x \"npm-run-all --sequential copy-views localhost-reload\""
   },
   "dependencies": {

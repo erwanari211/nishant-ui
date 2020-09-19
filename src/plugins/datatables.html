@@ -37,9 +37,15 @@
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/v4-shims.min.css">
 
     <!-- styles required by this view-->
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/r-2.2.5/datatables.min.css"/>
+    <style>
+      .custom-select.custom-select-sm.form-control.form-control-sm {
+        width: 70px;
+      }
+    </style>
     <!-- Main styles for this application-->
     <link href="css/style.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
@@ -68,103 +74,30 @@
               <div class="card">
                 <div class="card-header"><strong>Plugins</strong></div>
                 <div class="card-body">
-                  <div class="mb-2">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse"
-                      data-target="#form-validation">
-                      Form Validation
-                    </button>
-                    <div class="collapse my-2" id="form-validation">
-                      <div class="list-group">
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/form-validation.html">
-                          Form Validation
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                  <div class="table-responsive">
 
-                  <div class="mb-2">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse"
-                      data-target="#form-widget">
-                      Form Widget
-                    </button>
-                    <div class="collapse my-2" id="form-widget">
-                      <div class="list-group">
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/datetimepicker.html">
-                          Datetimepicker
-                        </a>
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/bootstrap-touchspin.html">
-                          Bootstrap Touchspin
-                        </a>
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/pretty-checkbox.html">
-                          Pretty Checkbox
-                        </a>
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/select2.html">
-                          Select2
-                        </a>
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/autosize.html">
-                          Autosize
-                        </a>
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/clipboard.html">
-                          Clipboard
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="mb-2">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse"
-                      data-target="#new">
-                      Form Text Editor
-                    </button>
-                    <div class="collapse my-2" id="new">
-                      <div class="list-group">
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/tinymce.html">
-                          TinyMCE
-                        </a>
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/quill.html">
-                          Quill
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="mb-2">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse"
-                      data-target="#table">
-                      Table
-                    </button>
-                    <div class="collapse my-2" id="table">
-                      <div class="list-group">
-                        <a class="list-group-item list-group-item-action"
-                          href="plugins/datatables.html">
-                          Datatables
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="mb-2">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse"
-                      data-target="#new">
-                      New
-                    </button>
-                    <div class="collapse my-2" id="new">
-                      <div class="list-group">
-                        <a class="list-group-item list-group-item-action"
-                          href="#">
-                          New
-                        </a>
-                      </div>
-                    </div>
+                    <table id="main-table" class="table table-hover table-bordered display" style="width:100%">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Position</th>
+                          <th>Salary</th>
+                          <th>Start Date</th>
+                          <th>Office</th>
+                          <th>Ext</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th>Name</th>
+                          <th>Position</th>
+                          <th>Salary</th>
+                          <th>Start Date</th>
+                          <th>Office</th>
+                          <th>Ext</th>
+                        </tr>
+                      </tfoot>
+                    </table>
                   </div>
                 </div>
               </div>
@@ -184,9 +117,71 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Plugins and scripts required by this view-->
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/r-2.2.5/datatables.min.js"></script>
     <script>
       $(document).ready(function () {
-        console.log('OK!');
+        $('#main-table').DataTable( {
+          "ajax": "plugins/datatables-objects.txt",
+          "columns": [
+            { "data": "name" },
+            { "data": "position" },
+            { "data": "salary" },
+            { "data": "start_date" },
+            { "data": "office" },
+            { "data": "extn" },
+          ],
+          columnDefs: [
+            { targets: 1, responsivePriority: 10003  },
+            { targets: 3, responsivePriority: 10002  },
+            { targets: 2, responsivePriority: 10001 },
+            // right to left
+            { targets: 5, responsivePriority: 2  },
+            { targets: 0, responsivePriority: 1  },
+          ],
+          // "responsive":  {
+          //   details: {
+          //     display: $.fn.dataTable.Responsive.display.modal( {
+          //       header: function ( row ) {
+          //         var data = row.data();
+          //         return `Details for ${ data['name'] }`;
+          //       }
+          //     } ),
+          //     // renderer: $.fn.dataTable.Responsive.renderer.tableAll( {
+          //     //   tableClass: 'table'
+          //     // } )
+          //     renderer: function ( api, rowIdx, columns ) {
+          //       var data = $.map( columns, function ( col, i ) {
+          //         return `<tr data-dt-row="${col.rowIndex}" data-dt-column="${col.columnIndex}">
+          //           <td>${col.title}:</td>
+          //           <td>${col.data}</td>
+          //         </tr>`
+          //       } ).join('');
+          //       return data ?
+          //         $('<table class="table" />').append( data ) :
+          //         false;
+          //     }
+          //   }
+          // },
+          // "responsive": true,
+          responsive: {
+            details: {
+              renderer: function ( api, rowIdx, columns ) {
+                var data = $.map( columns, function ( col, i ) {
+                  return col.hidden ?
+                    `<tr data-dt-row="${col.rowIndex}" data-dt-column="${col.columnIndex}">
+                      <td>${col.title}:</td>
+                      <td>${col.data}</td>
+                    </tr>` :
+                    '';
+                } ).join('');
+
+                return data ?
+                  $('<table class="table table-bordered"/>').append( data ) :
+                  false;
+              }
+            }
+          }
+        } );
       });
     </script>
 
