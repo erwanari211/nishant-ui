@@ -1,0 +1,15 @@
+#toast-container > .toast-success {
+  background-color: lighten($success, 5%);
+}
+
+#toast-container > .toast-info {
+  background-color: lighten($info, 5%);
+}
+
+#toast-container > .toast-warning {
+  background-color: lighten($warning, 5%);
+}
+
+#toast-container > .toast-error {
+  background-color: lighten($danger, 5%);
+}
